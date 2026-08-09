@@ -23,7 +23,17 @@
     <div class="panel">
       <div class="field">
         <label class="label">01 — Artwork</label>
-        <button class="upload-btn" id="uploadTrigger" type="button">⤒ Choose image</button>
+        <div class="upload-area">
+          <button class="upload-btn" id="uploadTrigger" type="button">⤒ Choose image</button>
+          <div class="drag-drop" id="dropZone">
+            <div class="drag-drop__icon">⤓</div>
+            <div class="drag-drop__text">
+              Drag & drop artwork here
+              <span class="drag-drop__browse" id="browseLink">or browse</span>
+            </div>
+            <div class="drag-drop__hint">Supported: PNG, JPG, JPEG</div>
+          </div>
+        </div>
         <input type="file" id="fileInput" accept="image/*">
         <div class="filename" id="fileName">No file selected — showing blank stock.</div>
       </div>
@@ -47,8 +57,26 @@
         <canvas class="stage" data-size="s2" width="700" height="460"></canvas>
         <canvas class="stage" data-size="s3" width="700" height="460"></canvas>
       </div>
+      <div class="zoom-preview" id="zoomPreview" aria-hidden="true">
+        <div class="zoom-label">Zoomed area</div>
+        <canvas id="zoomCanvas" width="240" height="240"></canvas>
+      </div>
       <div class="caption" id="caption"></div>
     </div>
+  </div>
+
+  <div class="review-modal" id="reviewModal" aria-hidden="true">
+    <div class="review-backdrop" id="reviewBackdrop"></div>
+    <div class="review-panel">
+      <button class="review-close" id="reviewClose" aria-label="Close preview">×</button>
+      <div class="review-title">Review artwork</div>
+      <canvas id="reviewCanvas" width="1120" height="740"></canvas>
+      <div class="review-actions">
+        <button class="btn btn-ghost" id="reviewDownload">Download preview</button>
+        <button class="btn btn-order" id="reviewCloseBtn">Close</button>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
 
