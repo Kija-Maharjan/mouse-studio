@@ -16,7 +16,10 @@
       <div class="eyebrow">Custom Print Preview</div>
       <h1>Mousepad Studio</h1>
     </div>
-    <div class="sub">Upload artwork, check the fit across every size we cut, then send the proof to production.</div>
+    <div>
+      <div class="sub">Upload artwork, check the fit across every size we cut, then send the proof to production.</div>
+      <button class="version-toggle" id="versionToggle" type="button">Second version</button>
+    </div>
   </header>
 
   <div class="grid">
@@ -43,12 +46,6 @@
         <div class="sizes" id="sizeList"></div>
       </div>
 
-      <div class="field">
-        <label class="label">03 — Export</label>
-        <button class="btn btn-ghost" id="downloadBtn">Download proof (PNG)</button>
-        <button class="btn btn-order" id="orderBtn">Place order</button>
-        <div class="status" id="statusMsg"></div>
-      </div>
     </div>
 
     <div class="panel stage-panel">
@@ -56,6 +53,11 @@
         <canvas class="stage active" data-size="s1" width="700" height="460"></canvas>
         <canvas class="stage" data-size="s2" width="700" height="460"></canvas>
         <canvas class="stage" data-size="s3" width="700" height="460"></canvas>
+      </div>
+      <div class="stage-actions">
+        <button class="btn btn-ghost" id="downloadBtn">Download proof (PNG)</button>
+        <button class="btn btn-order" id="orderBtn">Place order</button>
+        <div class="status" id="statusMsg"></div>
       </div>
       <div class="zoom-preview" id="zoomPreview" aria-hidden="true">
         <div class="zoom-label">Zoomed area</div>
