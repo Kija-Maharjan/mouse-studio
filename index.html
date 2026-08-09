@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mousepad Studio — Custom Print Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dekko&family=Signika:wght@400;500;600&family=Beth+Ellen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="bgGradient"></div>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Custom Print Preview</div>
+      <h1>Mousepad Studio</h1>
+    </div>
+    <div class="sub">Upload artwork, check the fit across every size we cut, then send the proof to production.</div>
+  </header>
+
+  <div class="grid">
+    <div class="panel">
+      <div class="field">
+        <label class="label">01 — Artwork</label>
+        <button class="upload-btn" id="uploadTrigger" type="button">⤒ Choose image</button>
+        <input type="file" id="fileInput" accept="image/*">
+        <div class="filename" id="fileName">No file selected — showing blank stock.</div>
+      </div>
+
+      <div class="field">
+        <label class="label">02 — Size</label>
+        <div class="sizes" id="sizeList"></div>
+      </div>
+
+      <div class="field">
+        <label class="label">03 — Export</label>
+        <button class="btn btn-ghost" id="downloadBtn">Download proof (PNG)</button>
+        <button class="btn btn-order" id="orderBtn">Place order</button>
+        <div class="status" id="statusMsg"></div>
+      </div>
+    </div>
+
+    <div class="panel stage-panel">
+      <div class="stage-grid">
+        <canvas class="stage active" data-size="s1" width="700" height="460"></canvas>
+        <canvas class="stage" data-size="s2" width="700" height="460"></canvas>
+        <canvas class="stage" data-size="s3" width="700" height="460"></canvas>
+      </div>
+      <div class="caption" id="caption"></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
