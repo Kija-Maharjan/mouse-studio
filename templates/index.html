@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mousepad Studio</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div id="bgGradient"></div>
+  <div class="page-bg">
+    <div class="main-card">
+      <header class="header">
+        <h1>Mousepad studio</h1>
+        <div class="header-line"></div>
+      </header>
+
+      <div class="content">
+        <!-- Left: Product Preview -->
+        <div class="preview-section">
+          <button class="nav-arrow left" id="prevBtn" aria-label="Previous product">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="preview-container">
+            <div class="product-preview" id="productPreview"></div>
+            <div class="size-label" id="sizeLabel">400mm x 450mm</div>
+            <div class="dots" id="dots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+            </div>
+          </div>
+
+          <button class="nav-arrow right" id="nextBtn" aria-label="Next product">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Right: Order Panel -->
+        <div class="order-section">
+          <div class="product-badge" id="productBadge">Standard 400mm x 450mm</div>
+
+          <div class="dropzone" id="dropzone">
+            <input type="file" id="fileInput" accept="image/*" hidden>
+            <div class="dropzone-content" id="dropzoneContent">
+              <p>Drag & Drop artwork<br>here or <span class="browse-link">browse</span></p>
+            </div>
+            <div class="preview-image-wrap" id="previewImageWrap" style="display:none;">
+              <img id="previewImage" alt="Artwork preview">
+              <button class="remove-image" id="removeImage" title="Remove">×</button>
+            </div>
+          </div>
+
+          <button class="tweak-btn" id="tweakBtn" style="display:none;">Adjust Artwork</button>
+          <button class="place-order-btn" id="placeOrderBtn">Place order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweak Editor Modal -->
+  <div class="tweak-overlay" id="tweakOverlay" style="display:none;">
+    <div class="tweak-modal">
+      <div class="tweak-header">
+        <h2>Adjust Artwork</h2>
+        <button class="tweak-close" id="tweakClose" title="Close">×</button>
+      </div>
+
+      <div class="tweak-body">
+        <div class="tweak-canvas-wrap">
+          <canvas id="tweakCanvas"></canvas>
+          <p class="tweak-hint">Drag to move · Scroll to zoom</p>
+        </div>
+
+        <div class="tweak-controls">
+          <div class="control-group">
+            <label>Zoom <span id="zoomValue">100%</span></label>
+            <input type="range" id="zoomSlider" min="20" max="300" value="100" step="1">
+          </div>
+
+          <div class="control-group">
+            <label>Horizontal <span id="offsetXValue">0</span></label>
+            <input type="range" id="offsetXSlider" min="-200" max="200" value="0" step="1">
+          </div>
+
+          <div class="control-group">
+            <label>Vertical <span id="offsetYValue">0</span></label>
+            <input type="range" id="offsetYSlider" min="-200" max="200" value="0" step="1">
+          </div>
+
+          <div class="tweak-presets">
+            <button type="button" id="fitBtn" class="preset-btn">Fit</button>
+            <button type="button" id="coverBtn" class="preset-btn">Cover</button>
+            <button type="button" id="resetBtn" class="preset-btn">Reset</button>
+          </div>
+
+          <div class="tweak-actions">
+            <button type="button" id="tweakCancel" class="tweak-cancel-btn">Cancel</button>
+            <button type="button" id="tweakApply" class="tweak-apply-btn">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal-overlay" id="modalOverlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-preview">
+        <div class="modal-product-shape" id="modalProductShape"></div>
+      </div>
+      <div class="modal-info">
+        <p class="order-number" id="modalOrderNumber">Order number: #100001</p>
+        <p class="order-size" id="modalOrderSize">size: 900mm x 400mm</p>
+        <a href="#" class="download-link" id="downloadLink">Download Order Copy.</a>
+      </div>
+      <button class="confirm-btn" id="confirmBtn">Conform order</button>
+    </div>
+  </div> <!-- Success Modal -->
+
+
+  <div class="modal-overlay" id="successOverlay" style="display:none;">
+    <div class="modal success-modal">
+      <div class="success-icon">✓</div>
+      <h2>Order Successful!</h2>
+      <p id="successMessage">Your order has been placed.</p>
+      <button class="confirm-btn" id="successOkBtn">OK</button>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
+
+ 
